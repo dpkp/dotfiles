@@ -1,0 +1,19 @@
+set nocompatible
+
+" --- General settings ---
+set backspace=indent,eol,start
+set ruler
+set number
+set showcmd
+set incsearch
+" set hlsearch
+
+syntax on
+
+" --- dpkp preferences ---
+filetype plugin indent on
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set noswapfile
