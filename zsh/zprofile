@@ -1,0 +1,15 @@
+echo "Activating brew..."
+if [ -x "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+path+=($HOME/bin)
+
+echo "Activating bbin..."
+path+=("$HOME/.babashka/bbin/bin")
+
+echo "Activating rvm..."
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+path+=("$HOME/.rvm/bin)

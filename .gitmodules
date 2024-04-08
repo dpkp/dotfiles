@@ -1,3 +1,9 @@
 [submodule "vim/pack/plugins/start/vim-airline"]
 	path = vim/pack/plugins/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
+[submodule "zsh/plugins/spaceship-prompt"]
+	path = zsh/plugins/spaceship-prompt
+	url = https://github.com/spaceship-prompt/spaceship-prompt
+[submodule "zsh/plugins/zsh-syntax-highlighting"]
+	path = zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting

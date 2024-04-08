@@ -1,0 +1,26 @@
+if [ -f "$HOME/.zsh.local" ]; then source "$HOME/.zsh.local"; fi
+
+echo "Activating spaceship-prompt..."
+export SPACESHIP_GIT_ASYNC=false
+export SPACESHIP_RUBY_ASYNC=false
+export SPACESHIP_ARCH_ASYNC=false
+source ~/.zsh/plugins/spaceship-prompt/spaceship.zsh
+source ~/.zsh/plugins/spaceship-section-arch/arch.zsh
+spaceship remove node docker docker_compose
+spaceship add --after git arch
+export SPACESHIP_AWS_SYMBOL="$SPACESHIP_AWS_SYMBOL "
+
+export CLICOLOR=true
+
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000000
+export SAVEHIST=10000000
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_VERIFY
+
+#eval $(ssh-agent)
