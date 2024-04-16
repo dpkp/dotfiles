@@ -1,14 +1,16 @@
 if [ -f "$HOME/.zsh.local" ]; then source "$HOME/.zsh.local"; fi
 
-echo "Activating spaceship-prompt..."
-export SPACESHIP_GIT_ASYNC=false
-export SPACESHIP_RUBY_ASYNC=false
-export SPACESHIP_ARCH_ASYNC=false
-source ~/.zsh/plugins/spaceship-prompt/spaceship.zsh
-source ~/.zsh/plugins/spaceship-section-arch/arch.zsh
-spaceship remove node docker docker_compose
-spaceship add --after git arch
-export SPACESHIP_AWS_SYMBOL="$SPACESHIP_AWS_SYMBOL "
+echo "Activating zsh plugins..."
+for p in $HOME/.zsh/plugins/*; do
+  local plugin="${p##*/}"
+  for initscript in ${plugin}.zsh ${plugin}.plugin.zsh ${plugin}.sh; do
+    if [ -f $p/$initscript ]; then
+      echo "-> $plugin"
+      source $p/$initscript
+      break
+    fi
+  done
+done
 
 export CLICOLOR=true
 
