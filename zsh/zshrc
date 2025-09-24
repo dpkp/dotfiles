@@ -12,7 +12,13 @@ for p in $HOME/.zsh/plugins/*; do
   done
 done
 
-export CLICOLOR=true
+if ls --block-size=1K &>/dev/null; then
+  # GNU
+  alias ls='ls --color=auto'
+else
+  # BSD
+  export CLICOLOR=true
+fi
 
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
